@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Practice Arena</title>
+    <style>
+        :root {
+            --bg-color: #f8f9fa;
+            --text-color: #212529;
+            --box-bg: #ffffff;
+        }
+        
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--box-bg);
+            border: 1px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+
+        h1 { color: #0d6efd; }
+        h2 { border-bottom: 2px solid #dee2e6; padding-bottom: 5px; }
+        h3 { color: #495057; }
+
+        .text-content {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        .highlight {
+            background-color: #ffeeba;
+            border-left: 4px solid #ffc107;
+            padding-left: 10px;
+        }
+
+        button {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 4px;
+            cursor: pointer;
+            margin: 5px 5px 5px 0;
+        }
+
+        button:hover { background-color: #0b5ed7; }
+
+        input[type="text"] {
+            padding: 8px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #style-box {
+            width: 100px;
+            height: 100px;
+            background-color: tomato;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+        }
+
+        ul { padding-left: 20px; }
+    </style>
+</head>
+<body id="main-body">
+
+    <h1 id="main-title">DOM Manipulation Practice</h1>
+    
+    <div class="container" id="selection-section">
+        <h2 class="section-heading">1. Selectors & Text Content</h2>
+        <p id="target-text" class="text-content">Modify this paragraph using <strong>innerText</strong>, <strong>textContent</strong>, or <strong>innerHTML</strong>.</p>
+        <p class="text-content">This is a second paragraph to practice <code>querySelectorAll</code>.</p>
+        <div id="box">
+            Hello
+            <span style="display:none">Secret</span>
+        </div>
+    </div>
+
+    <div class="container" id="style-section">
+        <h2 class="section-heading">2. Styles & Classes</h2>
+        <div id="style-box"></div>
+    </div>
+
+    <div class="container" id="node-section">
+        <h2 id="node-section-heading" class="section-heading">3. Create, Append & Remove</h2>
+        <ul id="dynamic-list">
+            <li>Item 1</li>
+            <li>Item 2</li>
+            <li>Item 3</li>
+        </ul>
+    </div>
+
+    <div class="container" id="attribute-section">
+        <h2 class="section-heading">4. Attributes & Properties</h2>
+        <img id="demo-image" src="https://via.placeholder.com/150" alt="Placeholder" width="150"><br>
+        
+    </div>
+
+    <script>
+        // create and apend a paragraph below the list
+        //create Element
+        let newPara = document.createElement("p");
+        newPara.textContent = "This is a new paragraph created with JavaScript.";
+        //append child
+        document.getElementById("dynamic-list").append(newPara);
+        
+        //=====================================
+
+        //Create and add a button to the end of the div with id = node-section change its styling to bg color black and text color yellow.
+        let newBtn = document.createElement("button");
+        newBtn.textContent = "Click Me!";
+        document.querySelector("#node-section").append(newBtn);
+        newBtn.style.color = "yellow";
+        newBtn.style.backgroundColor = "black";
+
+        //=====================================
+
+        //Add horizontal lines before and after the heading
+        let heading = document.querySelector("#node-section-heading");
+        heading.before(document.createElement("hr"));
+        heading.after(document.createElement("hr"));
+
+        //=====================================
+
+        //Remove Item 3 from the list
+        let item3 = document.querySelector("#dynamic-list li:nth-child(3)");
+        item3.remove();
+
+        //=====================================
+
+        //Replace Item 1 and Item 2 with Item A and Item B
+        //Changing text content
+        let item1 = document.querySelector("#dynamic-list li:nth-child(1)");
+        item1.textContent = "Item A";
+
+        //creating new node
+        let item2 = document.querySelector("#dynamic-list li:nth-child(2)");
+        let newItem2 = document.createElement("li");
+        newItem2.textContent = "Item B";
+        item2.replaceWith(newItem2);
+        
+        //=====================================
+    </script>
+</body>
+</html>
