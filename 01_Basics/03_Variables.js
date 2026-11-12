@@ -1,4 +1,8 @@
 // Variables store data
+//Types of variables
+// 1. var: Variable can be redeclared and updated.
+// 2. let: Variable can be updated but not redeclared.
+// 3. const: Variable cannot be updated or redeclared.
 
 var a = 10; //old way
 let b = 20; //new way, can be reassigned
@@ -17,3 +21,11 @@ var $1223 = 12344
 var my_age = 20 // This is a valid variable name
 var $city = "Jaipur"
 // var my@email = 'bd@gmail.com' // This will throw an error because variable names cannot contain the @ symbol
+
+let name = "Binod";
+console.log(name); //Binod
+name = "Dey";
+console.log(name); //Dey
+
+const PI = 3.14;
+console.log(PI); //3.14
