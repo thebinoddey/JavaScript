@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Website</title>
+</head>
+<body>
+    <h1 id="heading">Hello World</h1>
+    <p class="description">First paragraph</p>
+    <p class="description">Second paragraph</p>
+    <p class="description">Third paragraph</p>
+    <button>Click Me</button>
+</body>
+
+<script>
+    //Access the element using id
+    const heading = document.getElementById("heading");
+    console.log(heading); // <h1 id="heading">Hello World</h1>
+
+    //Access the element using class name
+    const paragraphs = document.getElementsByClassName("description"); 
+    console.log(paragraphs); // HTMLCollection of all elements with class "description"
+    console.log(paragraphs[0]); // <p class="description">First paragraph</p>
+    console.log(paragraphs[1]); // <p class="description">Second paragraph</p>
+    console.log(paragraphs[2]); // <p class="description">Third paragraph</p>
+
+    //Access the element using tag name
+    const allParagraphs = document.getElementsByTagName("p");
+    console.log(allParagraphs); // HTMLCollection of all <p> elements
+
+    //Access the element using querySelector
+    /*querySelector() returns the first matching element
+    querySelectorAll() returns all matching elements
+    all methods
+    - "#heading" for ID
+    - ".description" for class
+    - "p" for tag name
+    - "div > p" for child elements
+    
+    */
+    const firstParagraph = document.querySelector(".description");
+    console.log(firstParagraph); // <p class="description">First paragraph</p>
+    const headings = document.querySelector("#heading");
+    console.log(headings); // <h1 id="heading">Hello World</h1>
+
+    
+</script>
+</html>
